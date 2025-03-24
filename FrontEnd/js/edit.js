@@ -1,7 +1,7 @@
 const params = new URLSearchParams(window.location.search);
 const noteId = params.get("id");
 
-fetch(`http://localhost:3000/notes/${noteId}`)
+fetch(`https://tugas5be-935996462481.us-central1.run.app/notes/${noteId}`)
   .then(response => response.json())
   .then(note => {
     document.getElementById("title").value = note.title;
@@ -16,7 +16,7 @@ document.getElementById("edit-form").addEventListener("submit", function (e) {
     content: document.getElementById("content").value,
   };
 
-  fetch(`http://localhost:3000/notes/${noteId}`, {
+  fetch(`https://tugas5be-935996462481.us-central1.run.app/notes/${noteId}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(note),
